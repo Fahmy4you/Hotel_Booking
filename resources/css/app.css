@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mainDashboard.active {
+    @apply md:w-full md:ml-0;
+}
+.sidebar-overlay.active {
+    @apply hidden;
+}
+.sidebar-menu.active {
+    @apply -translate-x-full;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    @apply h-0 w-0;
+}
