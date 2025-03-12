@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <title>MARBLE BLUE | {{ $title ??  config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'HOTEL BLUE') }} | {{ $title ??  config('app.name', 'Laravel') }}</title>
     <!-- favicon link -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('image/landing_page/favicon.ico') }}" type="image/x-icon">
     <!-- google font link -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- tailwind css cdn -->
