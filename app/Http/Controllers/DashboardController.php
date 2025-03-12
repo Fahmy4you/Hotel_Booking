@@ -15,7 +15,7 @@ class DashboardController extends Controller
     public function home() {
         return view('landing', [
             'title' => "Home Page",
-            'rooms' => Room::orderBy('total_booking', 'desc')->get()
+            'rooms' => Room::orderBy('total_booking', 'desc')->limit(10)->get()
         ]);
     }
 
