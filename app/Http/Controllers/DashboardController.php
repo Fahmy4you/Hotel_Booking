@@ -15,7 +15,7 @@ class DashboardController extends Controller
     public function home() {
         return view('landing', [
             'title' => "Home Page",
-            'rooms' => Room::orderBy('total_booking', 'desc')->get(),
+            'rooms' => Room::orderBy('total_booking', 'desc')->get()
         ]);
     }
 
@@ -25,6 +25,7 @@ class DashboardController extends Controller
 
         $name_room = $request->query('search');
         $category = $request->query('category');
+        $category_name = Category::findOrFail($category)->name;
         $rooms = Room::query() // ketika tidak ada filter maka tampilkan semua
                 // ketika $name_room tidak sama dengan kosong dan tidak sama dengan null dan tidak sma dengan string kosong maka lakukan pencarian berdasarkan name_room
                 ->when(!empty($name_room) && $name_room != null && $name_room != '', function($query) use ($name_room) {
@@ -44,7 +45,7 @@ class DashboardController extends Controller
             } elseif (empty($name_room) && !empty($category)) {
                 $message = "Data Room Dengan Category '$category' Tidak Ada";
             } elseif (!empty($name_room) && !empty($category)) {
-                $message = "Data Search Room '$name_room' dengan Category '$categoryName' Tidak Ada";
+                $message = "Data Search Room '$name_room' dengan Category '$category_name' Tidak Ada";
             }
         }
 
@@ -53,6 +54,7 @@ class DashboardController extends Controller
             'rooms' => $rooms,
             'categories' => Category::all(),
             'message' => $message,
+            'nameroom' => $name_room
         ]);
     }
 

@@ -173,12 +173,12 @@
         </div>
         <!-- wrapper -->
         <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:gap-10">
-            @foreach ($rooms as $room)
+            @foreach($rooms as $room) 
                 <div class="max-w-sm mx-auto bg-white rounded-lg shadow-md overflow-hidden">
                     <!-- Gambar -->
                     <img
                     class="w-full h-48 object-cover"
-                    src="{{ asset('storage/image/kamar/'.$room->image) }}"
+                    src="{{ asset('storage/image/kamar/'. $room->image) }}"
                     alt="Deskripsi Gambar"
                     />
                 
@@ -200,7 +200,6 @@
                     </div>
                 </div>
             @endforeach
-            
         </div>
     </div>
 </section>

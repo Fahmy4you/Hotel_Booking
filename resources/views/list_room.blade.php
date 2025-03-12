@@ -35,12 +35,12 @@
             </form>
         </div>
         <!-- wrapper -->
+        @if ($rooms->isEmpty())
+            <div class="text-center text-xl text-gray-500 mt-5">
+               {{ $message ?? 'Tidak ada data kamar tersedia.' }}
+            </div>
+        @else
         <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:gap-10">
-          @if ($rooms->isEmpty())
-              <div class="text-center text-xl text-gray-500 mt-5">
-                  {{ $message ?? 'Tidak ada data kamar tersedia.' }}
-              </div>
-          @else
             @foreach ($rooms as $room)
               <div class="max-w-sm mx-auto bg-white rounded-lg shadow-md overflow-hidden">
                   <!-- Gambar -->
