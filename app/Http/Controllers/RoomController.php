@@ -107,6 +107,12 @@ class RoomController extends Controller
     public function destroy(string $id)
     {
         $dataRoom = Room::find($id);
+
+        // Cek apakah Room masih digunakan di tabel booking lain
+        if ($dataRoom->booking()->exists()) {
+            return redirect()->route('rooms.index')->with('error', 'Room cannot be deleted because it is still associated with booking.');
+        }
+
         $imageLama = 'image/kamar/' . $dataRoom->image;
         $this->deleteImage($imageLama);
         $dataRoom->delete();

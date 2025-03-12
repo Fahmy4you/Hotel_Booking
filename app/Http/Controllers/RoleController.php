@@ -87,7 +87,7 @@ class RoleController extends Controller
         try {
             $role = Role::findOrFail($id);
     
-            // Cek apakah Role masih digunakan di tabel room lain
+            // Cek apakah Role masih digunakan di tabel user lain
             if ($role->user()->exists()) {
                 return redirect()->route('roles.index')->with('error', 'User role cannot be deleted because it is still associated with users.');
             }

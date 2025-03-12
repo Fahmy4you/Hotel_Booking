@@ -136,6 +136,11 @@ class UserController extends Controller
         $user = User::find($id);
         $imageLama = $user->profile != "default.jpg" ? $user->profile : false; 
 
+        // Cek apakah User masih digunakan di tabel booking lain
+        if ($user->booking()->exists()) {
+            return redirect()->route('users.index')->with('error', 'User cannot be deleted because it is still associated with booking.');
+        }
+
         if($imageLama != false) {
             $imageLama = 'image/profile/' . $imageLama;
             $this->deleteImage($imageLama);

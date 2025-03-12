@@ -14,7 +14,7 @@
     @endif
     
     @if (session()->has('error'))
-      <div class="bg-green-300/40 rounded-md mb-3 py-2 px-3">{{session('error')}}</div>
+      <div class="bg-red-300/40 rounded-md mb-3 py-2 px-3">{{session('error')}}</div>
     @endif
 
     <!-- Table -->
@@ -34,7 +34,7 @@
             <td class="px-4 py-2 border-b border-gray-300 text-center">{{ $loop->iteration }}</td>
             <td class="px-4 py-2 border-b border-gray-300 text-center">{{ $role->name }}</td>
             <td class="px-4 py-2 border-b border-gray-300 text-center">{{ $role->user->count() }}</td>
-            <td class="px-4 py-2 border-b border-gray-300 justify-center flex hidden">
+            <td class="px-4 py-2 border-b border-gray-300 justify-center hidden">
               <a href="{{ route('roles.edit', $role->id) }}" class="text-blue-500">Edit</a>
               <form action="{{ route('roles.destroy', $role->id) }}" method="post">
                 @method('delete')

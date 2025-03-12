@@ -13,6 +13,10 @@
       <div class="bg-green-300/40 rounded-md mb-3 py-2 px-3">{{session('succes')}}</div>
     @endif
 
+    @if (session()->has('error'))
+      <div class="bg-red-300/40 rounded-md mb-3 py-2 px-3">{{session('error')}}</div>
+    @endif
+
     <!-- Table -->
     <div class="overflow-x-auto rounded-md">
       <table class="w-full border border-gray-300 text-left">
